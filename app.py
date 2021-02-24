@@ -16,23 +16,17 @@ class Pizza:
         self.id = id # index of input aray
         self.ingredients = set(ingredients) # set
 
-with open('test_input.txt', 'r') as f:
+def read_file(name):
+with open(name, 'r') as f:
     M, T2, T3, T4 = f.readline().strip().split()
 
     pizzas = []
     for i, line in enumerate(f.readlines()):
         pizzas.append(Pizza(i, *line.strip().split()[1:]))
 
-def run(T2, T3, T4, pizzas):
-
-def score_delivery(pizzas):
-
 def score_total(deliveries):
 
-def print_output(deliveries):
-    print(len(deliveries))
-    for delivery in deliveries:
-        print_delivery(delivery)
+def score_delivery(pizzas):
 
 def print_delivery(delivery):
     args = [len(delivery)]
@@ -40,3 +34,10 @@ def print_delivery(delivery):
         args.append(pizza.id)
 
     print(' '.join(args))
+
+def print_output(deliveries):
+    print(len(deliveries))
+    for delivery in deliveries:
+        print_delivery(delivery)
+
+def run(T2, T3, T4, pizzas):
