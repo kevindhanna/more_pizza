@@ -36,7 +36,8 @@ def run_run(solution, input):
 
     deliveries = run(*args)
     score = app.score_total(deliveries)
-    
+
+    print(score)
     return score, deliveries
 
 if __name__ == '__main__':

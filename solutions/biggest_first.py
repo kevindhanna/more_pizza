@@ -7,7 +7,7 @@ def get_best_pizza(pizzas, delivery):
             diff = len(d.ingredients - pizza.ingredients)
             if current < diff:
                 current = diff
-        if best['diff'] < current:
+        if best['diff'] <= current:
             best['pizza'] = pizza
             best['diff'] = current
     return best['pizza']
@@ -44,7 +44,6 @@ def run(T2, T3, T4, pizzas):
         deliveries.append(delivery)
         T2 -= 1
 
-    print(deliveries)
     return deliveries
 
 
