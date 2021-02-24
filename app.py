@@ -17,12 +17,12 @@ class Pizza:
         self.ingredients = set(ingredients) # set
 
 def read_file(name):
-with open(name, 'r') as f:
-    M, T2, T3, T4 = f.readline().strip().split()
+    with open(name, 'r') as f:
+        M, T2, T3, T4 = f.readline().strip().split()
 
-    pizzas = []
-    for i, line in enumerate(f.readlines()):
-        pizzas.append(Pizza(i, *line.strip().split()[1:]))
+        pizzas = []
+        for i, line in enumerate(f.readlines()):
+            pizzas.append(Pizza(i, *line.strip().split()[1:]))
 
 def score_total(deliveries):
 
@@ -41,3 +41,6 @@ def print_output(deliveries):
         print_delivery(delivery)
 
 def run(T2, T3, T4, pizzas):
+
+if __name__ == '__main__':
+    sys.exit(run(sys.argv[1:]))
