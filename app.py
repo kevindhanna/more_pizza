@@ -11,20 +11,13 @@
 
 # [ pizza1, pizza2, pizza3 ]
 
+import sys
+from functools import reduce
+
 class Pizza:
     def __init__(self, id, *ingredients):
         self.id = id # index of input aray
         self.ingredients = set(ingredients) # set
-
-def parse_file(lines):
-    with open(name, 'r') as f:
-        M, T2, T3, T4 = next(lines).strip().split()
-
-        pizzas = []
-        for i, line in enumerate(liens):
-            pizzas.append(Pizza(i, *line.strip().split()[1:]))
-        
-        return T2, T3, T4, pizzas
 
 def read_file(name):
     with open(name, 'r') as f:
@@ -40,7 +33,7 @@ def score_total(deliveries):
     return sum(score_delivery(d) for d in deliveries)
 
 def score_delivery(pizzas):
-    unique_ingredients = reduce(lambda a, b: a | b, delivery)
+    unique_ingredients = reduce(lambda a, b: a | b, pizzas)
     return len(unique_ingredients) ** 2
 
 def print_delivery(delivery):
@@ -60,8 +53,8 @@ def run(T2, T3, T4, pizzas):
     #create deliveries (tuple with id's) and add them to deliveries
     return deliveries
 
-def main():
-    M, T2, T3, T4, pizzas = read_file('./test_input.txt')
+def main(filename='./test_input.txt'):
+    M, T2, T3, T4, pizzas = read_file(filename)
     deliveries = run(T2, T3, T4, pizzas)
     print_output(deliveries)
 
