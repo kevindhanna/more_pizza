@@ -17,7 +17,7 @@ def run(T2, T3, T4, pizzas):
     # 4 person teams
     while len(pizzas) > 4 && T4 > 0:
         delivery = (pizzas.pop())
-        for x in 3:
+        for x in range(3):
             pizza = get_best_pizza(pizzas, delivery)
             delivery.append(pizza)
             pizzas.remove(pizza)
@@ -27,7 +27,7 @@ def run(T2, T3, T4, pizzas):
     # 3 person teams
     while len(pizzas) > 3 && T3 > 0:
         delivery = (pizzas.pop())
-        for x in 2:
+        for x in range(2):
             pizza = get_best_pizza(pizzas, delivery)
             delivery.append(pizza)
             pizzas.remove(pizza)
