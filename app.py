@@ -19,6 +19,16 @@ class Pizza:
         self.id = id # index of input aray
         self.ingredients = set(ingredients) # set
 
+def parse_file(lines):
+    with open(name, 'r') as f:
+        M, T2, T3, T4 = lines[0].strip().split()
+
+        pizzas = []
+        for i, line in enumerate(lines[1:]):
+            pizzas.append(Pizza(i, *line.strip().split()[1:]))
+        
+        return T2, T3, T4, pizzas
+
 def read_file(name):
     with open(name, 'r') as f:
         M, T2, T3, T4 = f.readline().strip().split()
