@@ -1,11 +1,12 @@
 import random
+from .. import app
 
 def pop_random(items):
-    return items.pop(items.randint(len(items)))
+    return items.pop(random.randint(0, len(items)))
 
 # This solution does a fully random distribution of pizzas
 # You can optionally pass in a seed to get the same result.
-def run(T2, T3, T4, pizzas, seed=None):
+def run(T2: int, T3: int, T4: int, pizzas, seed=None):
     if seed:
         random.seed(seed)
 
