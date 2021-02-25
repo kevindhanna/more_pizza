@@ -19,6 +19,12 @@ class Pizza:
         self.id = id # index of input aray
         self.ingredients = set(ingredients) # set
 
+    def __str__(self):
+        return f"id: {self.id}, ingreds: {self.ingredients}"
+
+    def __repr__(self):
+        return self.__str__()
+
 def parse_file(lines):
     with open(name, 'r') as f:
         M, T2, T3, T4 = lines[0].strip().split()
@@ -43,7 +49,7 @@ def score_total(deliveries):
     return sum(score_delivery(d) for d in deliveries)
 
 def score_delivery(pizzas):
-    unique_ingredients = reduce(lambda a, b: a | b, pizzas)
+    unique_ingredients = reduce(lambda a, b: a | b.ingredients, pizzas, set())
     return len(unique_ingredients) ** 2
 
 def print_delivery(delivery):
